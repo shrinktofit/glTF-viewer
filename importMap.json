@@ -1,0 +1,84 @@
+{
+  "imports": {
+    "@zoltu/typescript-transformer-append-js-extension/": "/node_modules/@zoltu/typescript-transformer-append-js-extension/",
+    "@zoltu/typescript-transformer-append-js-extension": "/node_modules/@zoltu/typescript-transformer-append-js-extension/output/index.js",
+    "@jsenv/node-module-import-map/": "/node_modules/@jsenv/node-module-import-map/",
+    "@jsenv/node-module-import-map": "/node_modules/@jsenv/node-module-import-map/index.js",
+    "@cocos-creator-3d/cc-gltf/": "/node_modules/@cocos-creator-3d/cc-gltf/",
+    "@cocos-creator-3d/cc-gltf": "/node_modules/@cocos-creator-3d/cc-gltf/dist/index.js",
+    "es-module-shims/": "/node_modules/es-module-shims/",
+    "es-module-shims": "/node_modules/es-module-shims/dist/es-module-shims.js",
+    "ttypescript/": "/node_modules/ttypescript/",
+    "ttypescript": "/node_modules/ttypescript/lib/typescript.js",
+    "typescript/": "/node_modules/typescript/",
+    "typescript": "/node_modules/typescript/lib/typescript.js",
+    "cc": "/test-page/cc/cc.js",
+    "image-data-uri": "/node_modules/image-data-uri/lib/image-data-uri.js",
+    "parse-data-url": "/node_modules/parse-data-url/index.js",
+    "uri-js": "/node_modules/uri-js/dist/es5/uri.all.js"
+  },
+  "scopes": {
+    "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/": {
+      "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/": "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/",
+      "/": "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/"
+    },
+    "/node_modules/@zoltu/typescript-transformer-append-js-extension/": {
+      "/node_modules/@zoltu/typescript-transformer-append-js-extension/": "/node_modules/@zoltu/typescript-transformer-append-js-extension/",
+      "/": "/node_modules/@zoltu/typescript-transformer-append-js-extension/"
+    },
+    "/node_modules/@jsenv/node-module-import-map/": {
+      "/node_modules/@jsenv/node-module-import-map/node_modules/@jsenv/operating-system-path/": "/node_modules/@jsenv/operating-system-path/",
+      "/node_modules/@jsenv/node-module-import-map/node_modules/@jsenv/module-resolution/": "/node_modules/@jsenv/module-resolution/",
+      "/node_modules/@jsenv/node-module-import-map/node_modules/@dmail/cancellation/": "/node_modules/@dmail/cancellation/",
+      "/node_modules/@jsenv/node-module-import-map/node_modules/@dmail/helper/": "/node_modules/@dmail/helper/",
+      "/node_modules/@jsenv/node-module-import-map/": "/node_modules/@jsenv/node-module-import-map/",
+      "/node_modules/@jsenv/operating-system-path/": "/node_modules/@jsenv/operating-system-path/",
+      "/node_modules/@jsenv/module-resolution/": "/node_modules/@jsenv/module-resolution/",
+      "/node_modules/@dmail/cancellation/": "/node_modules/@dmail/cancellation/",
+      "@jsenv/operating-system-path/": "/node_modules/@jsenv/operating-system-path/",
+      "@jsenv/operating-system-path": "/node_modules/@jsenv/operating-system-path/index.js",
+      "/node_modules/@dmail/helper/": "/node_modules/@dmail/helper/",
+      "@jsenv/module-resolution/": "/node_modules/@jsenv/module-resolution/",
+      "@jsenv/module-resolution": "/node_modules/@jsenv/module-resolution/index.js",
+      "@dmail/cancellation/": "/node_modules/@dmail/cancellation/",
+      "@dmail/cancellation": "/node_modules/@dmail/cancellation/index.js",
+      "@dmail/helper/": "/node_modules/@dmail/helper/",
+      "@dmail/helper": "/node_modules/@dmail/helper/index.js",
+      "/": "/node_modules/@jsenv/node-module-import-map/"
+    },
+    "/node_modules/@jsenv/operating-system-path/": {
+      "/node_modules/@jsenv/operating-system-path/": "/node_modules/@jsenv/operating-system-path/",
+      "@jsenv/module-resolution/": "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/",
+      "@jsenv/module-resolution": "/node_modules/@jsenv/operating-system-path/node_modules/@jsenv/module-resolution/index.js",
+      "/": "/node_modules/@jsenv/operating-system-path/"
+    },
+    "/node_modules/@cocos-creator-3d/cc-gltf/": {
+      "/node_modules/@cocos-creator-3d/cc-gltf/": "/node_modules/@cocos-creator-3d/cc-gltf/",
+      "/": "/node_modules/@cocos-creator-3d/cc-gltf/"
+    },
+    "/node_modules/@jsenv/module-resolution/": {
+      "/node_modules/@jsenv/module-resolution/": "/node_modules/@jsenv/module-resolution/",
+      "/": "/node_modules/@jsenv/module-resolution/"
+    },
+    "/node_modules/@dmail/cancellation/": {
+      "/node_modules/@dmail/cancellation/": "/node_modules/@dmail/cancellation/",
+      "/": "/node_modules/@dmail/cancellation/"
+    },
+    "/node_modules/es-module-shims/": {
+      "/node_modules/es-module-shims/": "/node_modules/es-module-shims/",
+      "/": "/node_modules/es-module-shims/"
+    },
+    "/node_modules/@dmail/helper/": {
+      "/node_modules/@dmail/helper/": "/node_modules/@dmail/helper/",
+      "/": "/node_modules/@dmail/helper/"
+    },
+    "/node_modules/ttypescript/": {
+      "/node_modules/ttypescript/": "/node_modules/ttypescript/",
+      "/": "/node_modules/ttypescript/"
+    },
+    "/node_modules/typescript/": {
+      "/node_modules/typescript/": "/node_modules/typescript/",
+      "/": "/node_modules/typescript/"
+    }
+  }
+}

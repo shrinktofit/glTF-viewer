@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "es-module-shims": [
+        "./node_modules/es-module-shims/dist/es-module-shims.js"
+      ],
+      "typescript": [
+        "./node_modules/typescript/lib/typescript.js"
+      ],
+      "@jsenv/node-module-import-map": [
+        "./node_modules/@jsenv/node-module-import-map/index.js"
+      ],
+      "ttypescript": [
+        "./node_modules/ttypescript/lib/typescript.js"
+      ],
+      "@cocos-creator-3d/cc-gltf": [
+        "./node_modules/@cocos-creator-3d/cc-gltf/dist/index.js"
+      ],
+      "@zoltu/typescript-transformer-append-js-extension": [
+        "./node_modules/@zoltu/typescript-transformer-append-js-extension/output/index.js"
+      ]
+    }
+  }
+}
