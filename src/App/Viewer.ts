@@ -1,6 +1,7 @@
 
 import { GltfConverter, readGltf, GLTFHost, NormalImportSetting, TangentImportSetting, AssetFinderKind, AssetFinder, AssetFinderResultMap } from '@cocos-creator-3d/cc-gltf';
 import * as cc from 'cc';
+import { FirstPersonCamera } from './FirstPersonCamera';
 
 export class Viewer {
     private _glTFHost: GLTFHost = {
@@ -15,8 +16,20 @@ export class Viewer {
     };
 
     constructor(canvas: HTMLCanvasElement) {
-        cc.game.run({}, () => {
-            console.log(`I'm started.`);
+        cc.game.run({
+            id: canvas.id,
+        }, () => {
+            const scene = new cc.Scene('Viewer');
+            cc.director.runScene(scene, () => {}, () => {
+                console.log(`Scene lauched.`);
+                const cameraNode = new cc.Node();
+                // @ts-ignore
+                scene.addChild(cameraNode);
+                const cameraComponent = cameraNode.addComponent(cc.CameraComponent);
+                cameraComponent!.color = new cc.Color(127, 127, 127);
+                cameraNode.setPosition(new cc.Vec3(0, 0, 3));
+                cameraNode.addComponent(FirstPersonCamera);
+            });
         });
     }
 
@@ -42,7 +55,6 @@ export class Viewer {
             }
         };
 
-        const ccMeshes: cc.Mesh[] = [];
         if (glTF.meshes) {
             glTF.meshes.forEach((glTFMesh, glTFMeshIndex) => {
                 const ccMesh = glTFConverter.createMesh(glTFMeshIndex, {
@@ -50,6 +62,45 @@ export class Viewer {
                     tangents: TangentImportSetting.require,
                 });
                 assetFinder[AssetFinderKind.mesh].push(ccMesh);
+            });
+        }
+
+        if (glTF.textures) {
+            glTF.textures.forEach((glTFTexture, glTFTextureIndex) => {
+                const textureParameters = glTFConverter.getTextureParameters(glTFTexture);
+                const normalizedParams = Object.assign({
+                    wrapModeS: cc.Texture2D.WrapMode.REPEAT,
+                    wrapModeT: cc.Texture2D.WrapMode.REPEAT,
+                    minFilter: cc.Texture2D.Filter.LINEAR,
+                    magFilter: cc.Texture2D.Filter.LINEAR,
+                    mipFilter: cc.Texture2D.Filter.NONE,
+                }, textureParameters);
+                const ccTexture = new cc.Texture2D();
+                ccTexture.setFilters(normalizedParams.minFilter, normalizedParams.magFilter);
+                ccTexture.setWrapMode(normalizedParams.wrapModeS, normalizedParams.wrapModeT);
+                const image = assetFinder.find(AssetFinderKind.image, glTFTexture.image);
+                if (image) {
+                    ccTexture.image = image;
+                }
+                assetFinder[AssetFinderKind.texture].push(ccTexture);
+            });
+        }
+
+        if (glTF.materials) {
+            glTF.materials.forEach((glTFMaterial, glTFMaterialIndex) => {
+                const ccMaterial = glTFConverter.createMaterial(glTFMaterialIndex, assetFinder, (effectName: string) => {
+                    const name = effectName.split('/').pop();
+                    if (name) {
+                        const nameNoExt = name.split('.').shift();
+                        if (nameNoExt) {
+                            const effect = cc.EffectAsset.get(nameNoExt);
+                            return effect;
+                        }
+                    }
+                    return null;
+                });
+                ccMaterial.onLoaded();
+                assetFinder[AssetFinderKind.material].push(ccMaterial);
             });
         }
 
@@ -65,6 +116,7 @@ export class Viewer {
         if (scene) {
             ccSceneNodes.forEach((ccSceneNode) => {
                 // @ts-ignore
+                ccSceneNode.setScale(10, 10, 10);
                 scene.addChild(ccSceneNode);
             });
         }

@@ -1,0 +1,5 @@
+{
+    "imports": {
+        "cc": "/test-page/cc/cc.js"
+    }
+}
