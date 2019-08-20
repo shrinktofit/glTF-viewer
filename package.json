@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@cocos-creator-3d/cc-gltf": "^1.0.8",
+    "@cocos-creator-3d/cc-gltf": "^1.0.10",
     "core-js": "^3.2.1",
     "regenerator-runtime": "^0.13.3"
   },

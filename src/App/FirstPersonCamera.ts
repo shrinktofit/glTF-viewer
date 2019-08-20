@@ -11,10 +11,10 @@ export class FirstPersonCamera extends Component {
     private _buttonStates: Partial<Record<Button, boolean>> = {};
 
     @_decorator.property
-    public horizontalRotationFactor = 0.01;
+    public horizontalRotationFactor = 0.1;
 
     @_decorator.property
-    public verticalRotationFactor = 0.01;
+    public verticalRotationFactor = 0.1;
 
     @_decorator.property
     public translationFactor = 0.01;
@@ -28,7 +28,7 @@ export class FirstPersonCamera extends Component {
             const dy = eventMouse.getScrollY();
             const dir = this.node.forward;
             dir.multiplyScalar(-dy * 0.001);
-            this.node.translate(dir, Node.NodeSpace.WORLD);
+            translateNode(this.node, dir);
         });
 
         systemEvent.on(SystemEventType.MOUSE_DOWN, (eventMouse) => {
@@ -57,7 +57,7 @@ export class FirstPersonCamera extends Component {
                 right.multiplyScalar(dx * this.translationFactor);
                 const up = this._getUp();
                 up.multiplyScalar(dy * this.translationFactor);
-                this.node.translate(right.add(up), Node.NodeSpace.WORLD);
+                translateNode(this.node, right.add(up));
             }
             if (this._buttonStates[Button.Right]) {
                 if (dx !== 0) {
@@ -77,4 +77,10 @@ export class FirstPersonCamera extends Component {
     private _getRight(): Vec3 {
         return Vec3.transformQuat(new Vec3(), Vec3.UNIT_X, this.node.getWorldRotation());
     }
+}
+
+function translateNode(node: Node, offset: Vec3) {
+    const position = node.getWorldPosition();
+    position.add(offset);
+    node.setWorldPosition(position);
 }
